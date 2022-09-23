@@ -36,15 +36,15 @@ public class Move : MonoBehaviour
 
     private void OnEnable()
     {
-        _lineDraw.Start += MovePoints;
+        _lineDraw.Start += GetPointPosition;
     }
 
     private void OnDisable()
     {
-        _lineDraw.Start -=MovePoints;
+        _lineDraw.Start -= GetPointPosition;
     }
 
-    private void MovePoints(List<Vector3> point)
+    private void GetPointPosition(List<Vector3> point)
     {
         _points = point;
     }

@@ -2,7 +2,9 @@ fileFormatVersion: 2
 guid: d5662f3d5dca82e4a94b2e939faf60b0
 ShaderImporter:
   externalObjects: {}
-  defaultTextures: []
+  defaultTextures:
+  - _MainTex: {instanceID: 0}
+  - _WiggleTex: {instanceID: 0}
   nonModifiableTextures: []
   preprocessorOverride: 0
   userData: 
