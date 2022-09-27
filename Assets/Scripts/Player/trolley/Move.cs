@@ -5,13 +5,13 @@ public class Move : MonoBehaviour
 {
     [SerializeField] private Bilder _lineDraw;
 
-    private List<Vector3> _points;
+    public List<Vector2> _points;
     private float _speed = 3f;
     private int _currentPoint = 0;
 
     private void Awake()
     {
-        _points = new List<Vector3>();
+        _points = new List<Vector2>();
     }
 
     private void Update()
@@ -44,7 +44,7 @@ public class Move : MonoBehaviour
         _lineDraw.Start -= GetPointPosition;
     }
 
-    private void GetPointPosition(List<Vector3> point)
+    private void GetPointPosition(List<Vector2> point)
     {
         _points = point;
     }

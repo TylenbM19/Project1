@@ -18,6 +18,6 @@ public class Hand : MonoBehaviour
     private void DisableBreakForse(bool result)
     {
         if (result)
-            _joint.breakForce = 0;
+            _joint.gameObject.SetActive(false);
     }
 }

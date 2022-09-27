@@ -9,6 +9,7 @@ public class BodyParts : MonoBehaviour, IParts
     {
         if (other.TryGetComponent<IEnemy>(out IEnemy enemy))
         {
+            Debug.Log(enemy);
             Faced?.Invoke(true);
         }
     }
