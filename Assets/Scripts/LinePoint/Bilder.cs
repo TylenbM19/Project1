@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -13,6 +12,7 @@ public class Bilder : MonoBehaviour
 
     private List<Vector2> _points;
     private LineRenderer _line;
+    private bool _enabled = true;
 
     private void Awake()
     {
@@ -25,13 +25,14 @@ public class Bilder : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && _enabled)
         {
             BildingSiteSearch();
         }
         else if (Input.GetMouseButtonUp(0))
         {
             Start?.Invoke(_points);
+            _enabled = false;
         }
     }
 

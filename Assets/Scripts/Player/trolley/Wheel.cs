@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Trolley : MonoBehaviour
+public class Wheel : MonoBehaviour
 {
-    [SerializeField] private Wheel[] _whell;
 }

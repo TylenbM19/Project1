@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
-    [SerializeField] private Bilder _lineDraw;
+    [SerializeField] private Bilder _bilder;
 
     public List<Vector2> _points;
     private float _speed = 3f;
@@ -36,12 +36,12 @@ public class Move : MonoBehaviour
 
     private void OnEnable()
     {
-        _lineDraw.Start += GetPointPosition;
+        _bilder.Start += GetPointPosition;
     }
 
     private void OnDisable()
     {
-        _lineDraw.Start -= GetPointPosition;
+        _bilder.Start -= GetPointPosition;
     }
 
     private void GetPointPosition(List<Vector2> point)
