@@ -28,7 +28,7 @@ public class Move : MonoBehaviour
 
                 if (_currentPoint >= _points.Count)
                 {
-                    transform.position = _points[_currentPoint];
+                    _points.Clear();
                 }
             }
         }
