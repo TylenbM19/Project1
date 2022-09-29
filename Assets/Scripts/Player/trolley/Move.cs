@@ -16,11 +16,11 @@ public class Move : MonoBehaviour
 
     private void Update()
     {
-        if (_points != null)
+        if (_points.Count != 0)
         {
             Vector3 target = _points[_currentPoint];
 
-            transform.position = Vector3.MoveTowards(transform.position, target, _speed * Time.deltaTime);
+           transform.position = Vector3.MoveTowards(transform.position, target, _speed * Time.deltaTime);
 
             if (transform.position == target)
             {
