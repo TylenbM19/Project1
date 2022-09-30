@@ -12,6 +12,6 @@ public class Wheel : MonoBehaviour
 
     public void Movement()
     {
-        transform.DORotate(new Vector3(0, 0, 360), _duration, RotateMode.LocalAxisAdd).SetLoops(-1).SetEase(Ease.Linear);
+        transform.DORotate(new Vector3(0, 360, 0), _duration, RotateMode.LocalAxisAdd).SetLoops(-1).SetEase(Ease.Linear);
     }
 }
