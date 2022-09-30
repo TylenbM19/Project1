@@ -1,9 +1,10 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BodyParts : MonoBehaviour, IParts
 {
-    [SerializeField] private Player _player;
+    private List<IPlayer> _players = new List<IPlayer>();
 
     public event Action<bool> Faced;
     public event Action FacedForFinishPoint;
@@ -12,7 +13,10 @@ public class BodyParts : MonoBehaviour, IParts
     {
         if (other.TryGetComponent<IObject>(out IObject enemy))
         {
-            _player.TakeDamage(enemy.CheckDamage());
+            foreach(IPlayer player in _players)
+            {
+                player.TakeDamage(enemy.CheckDamage());
+            }
             Faced?.Invoke(true);
         }
 

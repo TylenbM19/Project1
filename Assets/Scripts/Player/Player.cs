@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour , IPlayer
 {
     public event Action<bool> CollisionResult;
     public event Action ReproduceVictory;
