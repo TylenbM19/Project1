@@ -1,7 +1,7 @@
-using UnityEngine.Events;
+using System;
 
 public interface IParts 
 {
-    public event UnityAction<bool> Faced;
-    public event UnityAction FacedForFinishPoint;
+    public event Action<bool> Faced;
+    public event Action FacedForFinishPoint;
 }

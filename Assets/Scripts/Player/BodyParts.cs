@@ -1,12 +1,12 @@
+using System;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class BodyParts : MonoBehaviour, IParts
 {
     [SerializeField] private Player _player;
 
-    public event UnityAction<bool> Faced;
-    public event UnityAction FacedForFinishPoint;
+    public event Action<bool> Faced;
+    public event Action FacedForFinishPoint;
 
     private void OnTriggerEnter(Collider other)
     {
