@@ -6,7 +6,10 @@ public class Button : MonoBehaviour
     [SerializeField] private FinishPoint _finishPoint;
     [SerializeField] private Transform _point;
 
-
+    private void Start()
+    {
+        //PushButton();
+    }
     private void OnEnable()
     {
         _finishPoint.ReproduceEffect += PushButton;

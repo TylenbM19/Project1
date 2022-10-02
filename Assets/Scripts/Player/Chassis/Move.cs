@@ -7,7 +7,7 @@ public class Move : MonoBehaviour
     [SerializeField] private Bilder _bilder;
 
     private List<Vector2> _points = new List<Vector2>();
-    private float _speed = 3f;
+    private float _speed = 20f;
     private int _currentPoint = 0;
 
     public event Action StartMoving;

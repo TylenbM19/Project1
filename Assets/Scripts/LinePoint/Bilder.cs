@@ -18,8 +18,8 @@ public class Bilder : MonoBehaviour
     {
         _points = new List<Vector2>();
         _line = GetComponent<LineRenderer>();
-        _line.startWidth = 0.2f;
-        _line.endWidth = 0.2f;
+        _line.startWidth = 0.5f;
+        _line.endWidth = 0.5f;
         _line.positionCount = 0;
     }
 

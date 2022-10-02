@@ -26,6 +26,7 @@ public class FinishPoint : MonoBehaviour
 
     private  void DisableThis()
     {
+        Debug.Log("1");
         this.enabled = false;
     }
 }

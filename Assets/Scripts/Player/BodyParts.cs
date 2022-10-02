@@ -9,6 +9,11 @@ public class BodyParts : MonoBehaviour, IParts
     public event Action<bool> Faced;
     public event Action FacedForFinishPoint;
 
+    private void Start()
+    {
+        _players.AddRange(GetComponentsInParent<IPlayer>());
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent<IObject>(out IObject enemy))
@@ -16,8 +21,8 @@ public class BodyParts : MonoBehaviour, IParts
             foreach(IPlayer player in _players)
             {
                 player.TakeDamage(enemy.CheckDamage());
+                Faced?.Invoke(true);
             }
-            Faced?.Invoke(true);
         }
 
         if (other.TryGetComponent<FinishPoint>(out FinishPoint finishPoint))
