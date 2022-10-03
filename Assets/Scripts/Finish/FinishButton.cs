@@ -1,10 +1,10 @@
 using DG.Tweening;
 using UnityEngine;
 
-public class Button : MonoBehaviour
+public class FinishButton : MonoBehaviour
 {
     [SerializeField] private FinishPoint _finishPoint;
-    [SerializeField] private Transform _point;
+    //[SerializeField] private Transform _point;
 
     private void Start()
     {
@@ -22,6 +22,6 @@ public class Button : MonoBehaviour
 
     private void PushButton()
     {
-        transform.DOMove(_point.transform.position, 0.2f).SetLoops(-1, LoopType.Yoyo);
+        //transform.DOMove(_point.transform.position, 0.2f).SetLoops(-1, LoopType.Yoyo);
     }
 }

@@ -1,46 +1,36 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections.Generic;
-using System.Collections;
+using UnityEngine.UI;
 
-public class Restart : MonoBehaviour
+public class Restart : UI
 {
     [SerializeField] private Button _button;
-    [SerializeField] private Player _player;
-    [SerializeField] private float _timeRestart;
-
-    private CanvasGroup _canvasGroup;
-    private WaitForSeconds _waitForSeconds;
+    [SerializeField] private FinishPoint _point;
 
     private void OnEnable()
     {
-        _player.CollisionResult += RestartLeval;
+        _point.RestartLeval += EnableCanvasGroup;
+        _button.onClick.AddListener(PressButtonRestartLevel);
     }
 
     private void OnDisable()
     {
-        _player.CollisionResult -= RestartLeval;
+        _point.RestartLeval -= EnableCanvasGroup;
+        _button.onClick.AddListener(PressButtonRestartLevel);
     }
 
     private void Start()
     {
-        _canvasGroup = GetComponent<CanvasGroup>();
-        _canvasGroup.alpha = 0f;
-        _waitForSeconds = new WaitForSeconds(_timeRestart);
+        DisableCanvasGroup();
     }
 
-    private void RestartLeval(bool result)
+    private void PressButtonRestartLevel()
     {
-        if (result)
-        {
-            _canvasGroup.alpha = 1f;
-            StartCoroutine(Name());
-        }
+        LoadScene();
     }
 
-    private IEnumerator Name()
+    private void LoadScene()
     {
-            yield return _waitForSeconds;
-            SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

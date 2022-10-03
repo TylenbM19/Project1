@@ -6,6 +6,8 @@ public class FinishPoint : MonoBehaviour
     [SerializeField] private Player _player;
 
     public event Action ReproduceEffect;
+    public event Action NextLeval;
+    public event Action RestartLeval;
 
     private void OnEnable()
     {
@@ -22,11 +24,13 @@ public class FinishPoint : MonoBehaviour
     private void Reproduce()
     {
         ReproduceEffect?.Invoke();
+        NextLeval?.Invoke();
+        RestartLeval?.Invoke();
     }
 
     private  void DisableThis()
     {
-        Debug.Log("1");
         this.enabled = false;
+        RestartLeval?.Invoke();
     }
 }
