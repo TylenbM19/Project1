@@ -43,7 +43,6 @@ public class Menu :  UI
     private void EnabledOptions()
     {
         EnableCanvasGroup();
-        CallOptions?.Invoke();
-        //gameObject.SetActive(false);
+        CallOptions?.Invoke();        
     }
 }
