@@ -1,12 +1,12 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
-public class Player : MonoBehaviour 
+public class Player : MonoBehaviour , IPlayer
 {
-    public event UnityAction<bool> CollisionResult;
-    public event UnityAction ReproduceVictory;
-    public event UnityAction GotGamage;
+    public event Action<bool> CollisionResult;
+    public event Action ReproduceVictory;
+    public event Action GotGamage;
 
     private bool _takeDamageOnEnemy = false;
     private List<IParts> _parts = new List<IParts>();
@@ -31,8 +31,13 @@ public class Player : MonoBehaviour
     {
         _takeDamageOnEnemy = TakeDamageOnEnemy;
 
-        if(_takeDamageOnEnemy)
+        if (_takeDamageOnEnemy)
             GotGamage?.Invoke();
+    }
+
+    public void Unhook()
+    {
+        CollisionResult?.Invoke(true);
     }
 
     private void Subscribe()
@@ -55,7 +60,7 @@ public class Player : MonoBehaviour
         foreach (var part in _parts)
         {
             part.Faced -= CollisionWithObject;
-            part.FacedForFinishPoint += PassArgumetForLosingWin;
+            part.FacedForFinishPoint -= PassArgumetForLosingWin;
         }
     }
 

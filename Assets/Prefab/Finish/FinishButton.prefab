@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 937110816464253386}
   - component: {fileID: 4228478487109320303}
   - component: {fileID: 2110611036986460837}
-  - component: {fileID: 5401210656259057414}
   - component: {fileID: 9157263951991384871}
+  - component: {fileID: 2612161904548628455}
+  - component: {fileID: 700218520220389889}
   m_Layer: 0
   m_Name: FinishButton
   m_TagString: Untagged
@@ -85,21 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5401210656259057414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 453344028842748784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66aaab16ffa5a6c43ae1a6aec64006bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _flag: {fileID: 0}
-  _player: {fileID: 0}
-  _point: {fileID: 0}
 --- !u!64 &9157263951991384871
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -111,6 +97,36 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -7387706064836869012, guid: b88605e3b568ae148b6b75c5aac6c661, type: 3}
+--- !u!54 &2612161904548628455
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453344028842748784}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &700218520220389889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453344028842748784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 616a2761352aa584f8ef73a1911c116c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _finishPoint: {fileID: 0}
+  _point: {fileID: 0}

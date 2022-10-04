@@ -8,9 +8,4 @@ public class Water : MonoBehaviour, IObject
     {
         return true;
     }
-
-    public void Play()
-    {
-        Instantiate(_surge,transform.position,Quaternion.identity);
-    }
 }

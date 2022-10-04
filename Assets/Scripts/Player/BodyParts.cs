@@ -1,19 +1,28 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class BodyParts : MonoBehaviour, IParts
 {
-    [SerializeField] private Player _player;
+    private List<IPlayer> _players = new List<IPlayer>();
 
-    public event UnityAction<bool> Faced;
-    public event UnityAction FacedForFinishPoint;
+    public event Action<bool> Faced;
+    public event Action FacedForFinishPoint;
+
+    private void Start()
+    {
+        _players.AddRange(GetComponentsInParent<IPlayer>());
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent<IObject>(out IObject enemy))
         {
-            _player.TakeDamage(enemy.CheckDamage());
-            Faced?.Invoke(true);
+            foreach(IPlayer player in _players)
+            {
+                player.TakeDamage(enemy.CheckDamage());
+                Faced?.Invoke(true);
+            }
         }
 
         if (other.TryGetComponent<FinishPoint>(out FinishPoint finishPoint))
