@@ -11,19 +11,26 @@ public class NextLevel : UI
 
     private void OnEnable()
     {
-        _finishPoint.NextLeval += EnableCanvasGroup;
+        _finishPoint.NextLeval += EnableButton;
         _button.onClick.AddListener(EnableNextLevel);
     }
 
     private void OnDisable()
     {
-        _finishPoint.NextLeval -= EnableCanvasGroup;
-        _button.onClick.AddListener(EnableNextLevel);
+        _finishPoint.NextLeval -= EnableButton;
+        _button.onClick.RemoveListener(EnableNextLevel);
     }
 
     private void Start()
     {
         DisableCanvasGroup();
+        _button.gameObject.SetActive(false);
+    }
+
+    private void EnableButton()
+    {
+        _button.gameObject.SetActive(true);
+        EnableCanvasGroup();
     }
 
     private void EnableNextLevel()

@@ -1,6 +1,6 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 [RequireComponent(typeof(LineRenderer))]
 public class Bilder : MonoBehaviour
@@ -8,11 +8,12 @@ public class Bilder : MonoBehaviour
     [SerializeField] private Camera _camera;
     [SerializeField] private Transform _pointer;
 
-    public event UnityAction<List<Vector2>> Start;
+    public event Action<List<Vector2>> Start;
 
     private List<Vector2> _points;
     private LineRenderer _line;
     private bool _enabled = true;
+    private bool _startPositon = false;
 
     private void Awake()
     {
@@ -25,13 +26,27 @@ public class Bilder : MonoBehaviour
 
     private void Update()
     {
+        Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+
+        RaycastHit[] hits = Physics.RaycastAll(ray);
+
+        foreach (RaycastHit hit in hits)
+        {
+            if (hit.transform.TryGetComponent<PointStart>(out PointStart start))
+            {
+                start.transform.position = hit.point;
+                _startPositon = true;
+            }
+        }
+
         if (Input.GetMouseButton(0) && _enabled)
         {
             BildingSiteSearch();
         }
-        else if (Input.GetMouseButtonUp(0))
+        else if (Input.GetMouseButtonUp(0) && _startPositon)
         {
             Start?.Invoke(_points);
+            _startPositon = false;
             _enabled = false;
         }
     }
@@ -44,7 +59,7 @@ public class Bilder : MonoBehaviour
 
         foreach (RaycastHit hit in hits)
         {
-            if (hit.transform.TryGetComponent<Plane>(out Plane plane))
+            if (hit.transform.TryGetComponent<Plane>(out Plane plane)&& _startPositon)
             {
                 _pointer.position = hit.point;
                 DrawLine(_pointer.position);

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BodyParts : MonoBehaviour, IParts
 {
+    [SerializeField] private ParticleSystem _blood;
+
     private List<IPlayer> _players = new List<IPlayer>();
 
     public event Action<bool> Faced;
@@ -18,7 +20,7 @@ public class BodyParts : MonoBehaviour, IParts
     {
         if (other.TryGetComponent<IObject>(out IObject enemy))
         {
-            foreach(IPlayer player in _players)
+            foreach (IPlayer player in _players)
             {
                 player.TakeDamage(enemy.CheckDamage());
                 Faced?.Invoke(true);
@@ -29,6 +31,14 @@ public class BodyParts : MonoBehaviour, IParts
         {
             Faced?.Invoke(true);
             FacedForFinishPoint?.Invoke();
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.TryGetComponent<CircularDisk>(out CircularDisk enemy))
+        {
+            Instantiate(_blood, collision.GetContact(0).point, Quaternion.identity);
         }
     }
 }
