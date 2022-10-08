@@ -21,7 +21,6 @@ public class Restart : UI
 
     private void Start()
     {
-        DisableCanvasGroup();
         _button.gameObject.SetActive(false);
     }
 

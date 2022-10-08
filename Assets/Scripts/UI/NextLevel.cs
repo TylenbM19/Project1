@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -6,6 +7,7 @@ public class NextLevel : UI
 {
     [SerializeField] private FinishPoint _finishPoint;
     [SerializeField] private Button _button;
+    [SerializeField] private TextWin _textWin;
 
     private int _currentIndex = 1;
 
@@ -23,14 +25,14 @@ public class NextLevel : UI
 
     private void Start()
     {
-        DisableCanvasGroup();
         _button.gameObject.SetActive(false);
+        _textWin.gameObject.SetActive(false);
     }
 
     private void EnableButton()
     {
         _button.gameObject.SetActive(true);
-        EnableCanvasGroup();
+        _textWin.gameObject.SetActive(true);
     }
 
     private void EnableNextLevel()

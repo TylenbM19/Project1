@@ -21,6 +21,15 @@ public class FinishPoint : MonoBehaviour
         _player.GotGamage -= DisableThis;
     }
 
+    // TODO
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.TryGetComponent<IPlayer>(out IPlayer player))
+        {
+
+        }
+    }
+
     private void Reproduce()
     {
         ReproduceEffect?.Invoke();
