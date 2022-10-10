@@ -223,6 +223,7 @@ MonoBehaviour:
   _canvasGroup: {fileID: 2836326714062719882}
   _finishPoint: {fileID: 0}
   _button: {fileID: 1844172531239758431}
+  _textWin: {fileID: 0}
 --- !u!225 &2836326714062719882
 CanvasGroup:
   m_ObjectHideFlags: 0

@@ -9,19 +9,25 @@ public class Restart : UI
 
     private void OnEnable()
     {
-        _point.RestartLeval += EnableCanvasGroup;
+        _point.RestartLeval += EnableButton;
         _button.onClick.AddListener(PressButtonRestartLevel);
     }
 
     private void OnDisable()
     {
-        _point.RestartLeval -= EnableCanvasGroup;
-        _button.onClick.AddListener(PressButtonRestartLevel);
+        _point.RestartLeval -= EnableButton;
+        _button.onClick.RemoveListener(PressButtonRestartLevel);
     }
 
     private void Start()
     {
-        DisableCanvasGroup();
+        _button.gameObject.SetActive(false);
+    }
+
+    private void EnableButton()
+    {
+        _button.gameObject.SetActive(true);
+        EnableCanvasGroup();
     }
 
     private void PressButtonRestartLevel()
@@ -30,7 +36,7 @@ public class Restart : UI
     }
 
     private void LoadScene()
-    {
+    {        
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

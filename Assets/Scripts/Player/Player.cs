@@ -2,11 +2,10 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour , IPlayer
+public class Player : MonoBehaviour, IPlayer
 {
     public event Action<bool> CollisionResult;
-    public event Action ReproduceVictory;
-    public event Action GotGamage;
+    public event Action<bool> ReproduceVictory;
 
     private bool _takeDamageOnEnemy = false;
     private List<IParts> _parts = new List<IParts>();
@@ -30,9 +29,8 @@ public class Player : MonoBehaviour , IPlayer
     public void TakeDamage(bool TakeDamageOnEnemy)
     {
         _takeDamageOnEnemy = TakeDamageOnEnemy;
-
-        if (_takeDamageOnEnemy)
-            GotGamage?.Invoke();
+        Unhook();
+        PassArgumetForLosingWin();
     }
 
     public void Unhook()
@@ -47,7 +45,6 @@ public class Player : MonoBehaviour , IPlayer
 
         foreach (var part in _parts)
         {
-            part.Faced += CollisionWithObject;
             part.FacedForFinishPoint += PassArgumetForLosingWin;
         }
     }
@@ -59,22 +56,12 @@ public class Player : MonoBehaviour , IPlayer
 
         foreach (var part in _parts)
         {
-            part.Faced -= CollisionWithObject;
             part.FacedForFinishPoint -= PassArgumetForLosingWin;
         }
     }
 
-    private void CollisionWithObject(bool result)
-    {
-        CollisionResult?.Invoke(result);
-        PassArgumetForLosingWin();
-    }
-
     private void PassArgumetForLosingWin()
     {
-        if (_takeDamageOnEnemy)
-            return;
-
-        ReproduceVictory?.Invoke();
+        ReproduceVictory?.Invoke(_takeDamageOnEnemy);
     }
 }

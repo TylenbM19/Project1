@@ -9,6 +9,6 @@ public abstract class UI : MonoBehaviour , IUi
     private const float _maxValue = 1f;
     private const float _minValue = 0f;
 
-    public void EnableCanvasGroup() => _canvasGroup.alpha = _maxValue;
-    public void DisableCanvasGroup() => _canvasGroup.alpha = _minValue;
+    public void EnableCanvasGroup() => _canvasGroup.gameObject.SetActive(true);
+    public void DisableCanvasGroup() => _canvasGroup.gameObject.SetActive(false);
 }

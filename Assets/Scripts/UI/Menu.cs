@@ -1,14 +1,13 @@
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
 
 public class Menu :  UI
 {
     [SerializeField] private Button _buttonStart;
     [SerializeField] private Button _buttonOptions;
-
-    public event Action CallOptions;    
+    [SerializeField] private Options _options;
+ 
     private int _nextScene = 1;
 
     private void OnEnable()
@@ -19,8 +18,8 @@ public class Menu :  UI
 
     private void OnDisable()
     {
-        _buttonStart.onClick.AddListener(EnabledGame);
-        _buttonOptions.onClick.AddListener(EnabledOptions);
+        _buttonStart.onClick.RemoveListener(EnabledGame);
+        _buttonOptions.onClick.RemoveListener(EnabledOptions);
     }
     
     private void Start()
@@ -30,19 +29,17 @@ public class Menu :  UI
 
     public void OpenMenu()
     {
-        EnableCanvasGroup();
         gameObject.SetActive(true);
     }
  
     private void EnabledGame()
     {
-        DisableCanvasGroup();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + _nextScene);
     }
 
     private void EnabledOptions()
     {
-        EnableCanvasGroup();
-        CallOptions?.Invoke();        
+        _options.OpenOptions();
+        gameObject.SetActive(false);
     }
 }

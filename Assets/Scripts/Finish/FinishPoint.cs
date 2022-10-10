@@ -4,6 +4,8 @@ using UnityEngine;
 public class FinishPoint : MonoBehaviour
 {
     [SerializeField] private Player _player;
+    [SerializeField] private Transform[] _pointPlayParticalWin;
+    [SerializeField] private ParticleSystem _conffeti;
 
     public event Action ReproduceEffect;
     public event Action NextLeval;
@@ -12,25 +14,39 @@ public class FinishPoint : MonoBehaviour
     private void OnEnable()
     {
         _player.ReproduceVictory += Reproduce;
-        _player.GotGamage += DisableThis;
     }
 
     private void OnDisable()
     {
         _player.ReproduceVictory -= Reproduce;
-        _player.GotGamage -= DisableThis;
     }
 
-    private void Reproduce()
+    private void Reproduce(bool result)
     {
-        ReproduceEffect?.Invoke();
-        NextLeval?.Invoke();
+        if (result)
+        {
+            DisableThis();
+        }
+        else
+        {
+            ReproduceEffect?.Invoke();
+            NextLeval?.Invoke();
+            ReproducteParticalWin();
+            DisableThis();
+        }
+    }
+
+    private void DisableThis()
+    {
         RestartLeval?.Invoke();
-    }
-
-    private  void DisableThis()
-    {
         this.enabled = false;
-        RestartLeval?.Invoke();
+    }
+
+    private void ReproducteParticalWin()
+    {
+        foreach (Transform pointPosition in _pointPlayParticalWin)
+        {
+            Instantiate(_conffeti, pointPosition.position, Quaternion.Euler(-90,0,0));
+        }
     }
 }

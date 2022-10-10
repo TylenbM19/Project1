@@ -4,12 +4,10 @@ using UnityEngine;
 public class FinishButton : MonoBehaviour
 {
     [SerializeField] private FinishPoint _finishPoint;
-    //[SerializeField] private Transform _point;
+    [SerializeField] private Animator _pushButtonAnimation;
 
-    private void Start()
-    {
-        //PushButton();
-    }
+    private const string _nameAnimation = "finishButton";
+
     private void OnEnable()
     {
         _finishPoint.ReproduceEffect += PushButton;
@@ -22,6 +20,6 @@ public class FinishButton : MonoBehaviour
 
     private void PushButton()
     {
-        //transform.DOMove(_point.transform.position, 0.2f).SetLoops(-1, LoopType.Yoyo);
+        _pushButtonAnimation.Play(_nameAnimation);
     }
 }
