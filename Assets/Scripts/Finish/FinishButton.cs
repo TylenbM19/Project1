@@ -4,7 +4,8 @@ using UnityEngine;
 public class FinishButton : MonoBehaviour
 {
     [SerializeField] private FinishPoint _finishPoint;
-    //[SerializeField] private Transform _point;
+    [SerializeField] private Transform[] _positoinPlayEffect;
+    [SerializeField] private ParticleSystem _conffetis;
 
     private void Start()
     {
