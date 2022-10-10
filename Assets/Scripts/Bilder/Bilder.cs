@@ -26,6 +26,22 @@ public class Bilder : MonoBehaviour
 
     private void Update()
     {
+        FindingPositionsDraw();
+
+        if (Input.GetMouseButton(0) && _enabled)
+        {
+            BildingSiteSearch();
+        }
+        else if (Input.GetMouseButtonUp(0) && _startPositon)
+        {
+            Start?.Invoke(_points);
+            _startPositon = false;
+            _enabled = false;
+        }
+    }
+
+    private void FindingPositionsDraw()
+    {
         Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
 
         RaycastHit[] hits = Physics.RaycastAll(ray);
@@ -37,17 +53,6 @@ public class Bilder : MonoBehaviour
                 start.transform.position = hit.point;
                 _startPositon = true;
             }
-        }
-
-        if (Input.GetMouseButton(0) && _enabled)
-        {
-            BildingSiteSearch();
-        }
-        else if (Input.GetMouseButtonUp(0) && _startPositon)
-        {
-            Start?.Invoke(_points);
-            _startPositon = false;
-            _enabled = false;
         }
     }
 

@@ -35,7 +35,7 @@ public class BodyParts : MonoBehaviour, IParts
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.TryGetComponent<CircularDisk>(out CircularDisk enemy))
+        if (collision.gameObject.TryGetComponent<SharpObject>(out SharpObject enemy))
         {
             Instantiate(_blood, collision.GetContact(0).point, Quaternion.identity);
         }
