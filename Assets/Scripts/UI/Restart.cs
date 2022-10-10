@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -6,6 +7,8 @@ public class Restart : UI
 {
     [SerializeField] private Button _button;
     [SerializeField] private FinishPoint _point;
+
+    private float _delayTimeRestartGame = 1f;
 
     private void OnEnable()
     {
@@ -32,11 +35,13 @@ public class Restart : UI
 
     private void PressButtonRestartLevel()
     {
-        LoadScene();
+        PlaySoundPushButtom();
+        StartCoroutine(LoadScene());
     }
 
-    private void LoadScene()
+    private IEnumerator LoadScene()
     {        
+        yield return new WaitForSeconds(_delayTimeRestartGame);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

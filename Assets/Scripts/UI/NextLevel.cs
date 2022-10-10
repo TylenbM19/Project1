@@ -31,12 +31,14 @@ public class NextLevel : UI
 
     private void EnableButton()
     {
+        
         _button.gameObject.SetActive(true);
         _textWin.gameObject.SetActive(true);
     }
 
     private void EnableNextLevel()
     {
+        PlaySoundPushButtom();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + _currentIndex);
     }
 }
