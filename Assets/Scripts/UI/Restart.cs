@@ -13,13 +13,13 @@ public class Restart : UI
     private void OnEnable()
     {
         _point.RestartLeval += EnableButton;
-        _button.onClick.AddListener(PressButtonRestartLevel);
+        _button.onClick.AddListener(ReloadLevel);
     }
 
     private void OnDisable()
     {
         _point.RestartLeval -= EnableButton;
-        _button.onClick.RemoveListener(PressButtonRestartLevel);
+        _button.onClick.RemoveListener(ReloadLevel);
     }
 
     private void Start()
@@ -33,7 +33,7 @@ public class Restart : UI
         EnableCanvasGroup();
     }
 
-    private void PressButtonRestartLevel()
+    private void ReloadLevel()
     {
         PlaySoundPushButtom();
         StartCoroutine(LoadScene());

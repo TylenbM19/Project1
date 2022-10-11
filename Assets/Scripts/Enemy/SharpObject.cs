@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SharpObject : MonoBehaviour, IObject
 {
-    public bool CheckDamage()
+    public bool ApplyDamage()
     {
         return true;
     }

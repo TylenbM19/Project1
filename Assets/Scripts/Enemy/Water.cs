@@ -4,7 +4,7 @@ public class Water : MonoBehaviour, IObject
 {
     [SerializeField] private ParticleSystem _surge;
 
-    public bool CheckDamage()
+    public bool ApplyDamage()
     {
         return true;
     }

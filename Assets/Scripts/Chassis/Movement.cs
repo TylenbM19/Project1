@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Move : MonoBehaviour
+public class Movement : MonoBehaviour
 {
     [SerializeField] private Bilder _bilder;
 
-    private List<Vector2> _points = new List<Vector2>();
+    private List<Vector3> _points = new List<Vector3>();
     private float _speed = 20f;
     private int _currentPoint = 0;
 
@@ -25,11 +25,12 @@ public class Move : MonoBehaviour
 
     private void Update()
     {
-        Movement();
+        Move();
     }
 
-    private void Movement()
+    private void Move()
     {
+
         if (_points.Count != 0)
         {
             StartMoving?.Invoke();
@@ -37,20 +38,20 @@ public class Move : MonoBehaviour
 
             transform.position = Vector3.MoveTowards(transform.position, target, _speed * Time.deltaTime);
 
-            if (transform.position == target)
+            if (Vector3.Distance(transform.position, target) <= 0.01f)
             {
                 _currentPoint++;
 
                 if (_currentPoint >= _points.Count)
                 {
-                    _points.Clear();
-                    EndMovemet?.Invoke();
+                   _points.Clear();
+                   EndMovemet?.Invoke();
                 }
             }
         }
     }
 
-    private void GetPointPosition(List<Vector2> point)
+    private void GetPointPosition(List<Vector3> point)
     {
         _points = point;
     }

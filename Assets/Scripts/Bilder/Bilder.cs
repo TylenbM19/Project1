@@ -8,16 +8,16 @@ public class Bilder : MonoBehaviour
     [SerializeField] private Camera _camera;
     [SerializeField] private Transform _pointer;
 
-    public event Action<List<Vector2>> Start;
+    public event Action<List<Vector3>> Start;
 
-    private List<Vector2> _points;
+    private List<Vector3> _points;
     private LineRenderer _line;
     private bool _enabled = true;
     private bool _startPositon = false;
 
     private void Awake()
     {
-        _points = new List<Vector2>();
+        _points = new List<Vector3>();
         _line = GetComponent<LineRenderer>();
         _line.startWidth = 0.5f;
         _line.endWidth = 0.5f;
