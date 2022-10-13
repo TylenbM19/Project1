@@ -15,12 +15,12 @@ public class Movement : MonoBehaviour
 
     private void OnEnable()
     {
-        _bilder.Start += GetPointPosition;
+        _bilder.TransferPositon += GetPointPosition;
     }
 
     private void OnDisable()
     {
-        _bilder.Start -= GetPointPosition;
+        _bilder.TransferPositon -= GetPointPosition;
     }
 
     private void Update()
