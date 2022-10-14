@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,6 +10,8 @@ public class Restart : UI
     [SerializeField] private FinishPoint _point;
 
     private float _delayTimeRestartGame = 1f;
+
+    public event Action IsClick;
 
     private void OnEnable()
     {
@@ -35,7 +38,7 @@ public class Restart : UI
 
     private void ReloadLevel()
     {
-        PlaySoundPushButtom();
+        IsClick?.Invoke();
         StartCoroutine(LoadScene());
     }
 

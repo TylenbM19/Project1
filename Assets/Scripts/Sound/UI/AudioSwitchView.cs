@@ -1,13 +1,11 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Button))]
-public class SoundControl : MonoBehaviour
+public class AudioSwitchView : MonoBehaviour
 {
-    [SerializeField] private Sprite _imageOn, _imageOff;
+    [SerializeField] private Sprite _switchOn, _switchOff;
     [SerializeField] private Image _image;
 
     private Button _button;
@@ -29,13 +27,13 @@ public class SoundControl : MonoBehaviour
         _button.onClick.RemoveListener(ClickHandler);
     }
 
+    public void ChangeIcon(bool isOn)
+    {
+        _image.sprite = isOn ? _switchOn : _switchOff;
+    }
+
     private void ClickHandler()
     {
         OnClickIcon?.Invoke();
-    }
-
-    public void ChangeIcon(bool isOn)
-    {
-        _image.sprite = isOn ? _imageOn : _imageOff;
     }
 }

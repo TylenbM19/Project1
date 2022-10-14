@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class LosingVictory : UI
 {
-    [SerializeField] private AudioSource _soundWin;
     [SerializeField] private Animator _word;
     [SerializeField] private FinishPoint _finishPoint;
 
@@ -20,13 +19,7 @@ public class LosingVictory : UI
 
     private void PlayWinnings()
     {
-        PlaySound();
         ShowText();
-    }
-
-    private void PlaySound()
-    {
-        _soundWin.Play();
     }
 
     private void ShowText()
