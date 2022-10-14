@@ -3,7 +3,7 @@ using UnityEngine;
 public class Island : MonoBehaviour, IObject
 {
     [SerializeField] private ParticleSystem _dustEffect;
-    public bool CheckDamage()
+    public bool ApplyDamage()
     {
         return false;
     }

@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,36 +9,42 @@ public class NextLevel : UI
 {
     [SerializeField] private FinishPoint _finishPoint;
     [SerializeField] private Button _button;
-    [SerializeField] private TextWin _textWin;
 
     private int _currentIndex = 1;
+    private float _timeDelayNewLevel = 1f;
+    public event Action IsClick;
 
     private void OnEnable()
     {
         _finishPoint.NextLeval += EnableButton;
-        _button.onClick.AddListener(EnableNextLevel);
+        _button.onClick.AddListener(ChallengeNextLevel);
     }
 
     private void OnDisable()
     {
         _finishPoint.NextLeval -= EnableButton;
-        _button.onClick.RemoveListener(EnableNextLevel);
+        _button.onClick.RemoveListener(ChallengeNextLevel);
     }
 
     private void Start()
     {
         _button.gameObject.SetActive(false);
-        _textWin.gameObject.SetActive(false);
     }
 
     private void EnableButton()
     {
+        IsClick?.Invoke();
         _button.gameObject.SetActive(true);
-        _textWin.gameObject.SetActive(true);
     }
 
-    private void EnableNextLevel()
+    private void ChallengeNextLevel()
     {
+        StartCoroutine(EnableNextLevel());
+    }
+
+    private IEnumerator EnableNextLevel()
+    {
+        yield return new WaitForSeconds(_timeDelayNewLevel);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + _currentIndex);
     }
 }

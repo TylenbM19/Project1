@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Chassis : MonoBehaviour
 {
-    [SerializeField] private Move _move;
+    [SerializeField] private Movement _move;
     [SerializeField] private Player _player;
     [SerializeField] private Wheel[] _wheels;
 

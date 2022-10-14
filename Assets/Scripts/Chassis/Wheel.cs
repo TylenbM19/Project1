@@ -1,7 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 
-public class Wheel : MonoBehaviour 
+public class Wheel : MonoBehaviour
 {
     private int _duration = 1;
 

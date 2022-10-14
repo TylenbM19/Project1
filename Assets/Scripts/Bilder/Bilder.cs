@@ -8,16 +8,18 @@ public class Bilder : MonoBehaviour
     [SerializeField] private Camera _camera;
     [SerializeField] private Transform _pointer;
 
-    public event Action<List<Vector2>> Start;
+    public event Action<List<Vector3>> TransferPositon;
+    public event Action StartDraw;
 
-    private List<Vector2> _points;
+
+    private List<Vector3> _points;
     private LineRenderer _line;
     private bool _enabled = true;
     private bool _startPositon = false;
 
     private void Awake()
     {
-        _points = new List<Vector2>();
+        _points = new List<Vector3>();
         _line = GetComponent<LineRenderer>();
         _line.startWidth = 0.5f;
         _line.endWidth = 0.5f;
@@ -31,10 +33,11 @@ public class Bilder : MonoBehaviour
         if (Input.GetMouseButton(0) && _enabled)
         {
             BildingSiteSearch();
+            StartDraw?.Invoke();
         }
         else if (Input.GetMouseButtonUp(0) && _startPositon)
         {
-            Start?.Invoke(_points);
+            TransferPositon?.Invoke(_points);
             _startPositon = false;
             _enabled = false;
         }

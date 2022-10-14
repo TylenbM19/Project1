@@ -22,7 +22,7 @@ public class BodyParts : MonoBehaviour, IParts
         {
             foreach (IPlayer player in _players)
             {
-                player.TakeDamage(enemy.CheckDamage());
+                player.TakeDamage(enemy.ApplyDamage());
             }
         }
 

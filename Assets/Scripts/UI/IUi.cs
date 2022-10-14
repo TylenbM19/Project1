@@ -1,4 +1,3 @@
-
 public interface IUi
 {
     public void EnableCanvasGroup();
