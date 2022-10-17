@@ -52,8 +52,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainMenu: {fileID: 84185356}
-  _clickButton: {fileID: 0}
-  _ui: {fileID: 0}
+  _clickButton: {fileID: 84185355}
+  _ui:
+  - {fileID: 2836326714062719877}
+  - {fileID: 2836326713367961403}
   _soundControl: {fileID: 1769606517}
 --- !u!82 &84185356
 AudioSource:
@@ -66,7 +68,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 386cbc0196fdb0944ad8f97ec55a7e7f, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -161,8 +163,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: a41573091603ab049acfc59f10b6d66b, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

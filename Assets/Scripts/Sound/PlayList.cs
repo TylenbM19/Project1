@@ -6,25 +6,35 @@ public class PlayList : MonoBehaviour
 {
     [SerializeField] private AudioSource _mainMenu;
     [SerializeField] private AudioSource _clickButton;
-    [SerializeField] private UI _ui;
+    [SerializeField] private UI[] _ui;
     [SerializeField] private SoundControl _soundControl;
 
-    private bool _isPlaying = true;
+    private bool _isPlaying ;
 
     private void OnEnable()
     {
         _soundControl.IsSwitching += SwitchSound;
+
+        foreach (UI ui in _ui)
+        {
+            ui.IsClick += EnableSoundClickButton;
+        }
     }
 
     private void OnDisable()
     {
         _soundControl.IsSwitching -= SwitchSound;
+
+        foreach (UI ui in _ui)
+        {
+            ui.IsClick -= EnableSoundClickButton;
+        }
     }
 
     private void SwitchSound(bool isPlaying)
     {
         _isPlaying = isPlaying;
-        //EnableSoundClickButton();
+        EnableSoundClickButton();
         EnableSoundMainMenu();
     }
 
