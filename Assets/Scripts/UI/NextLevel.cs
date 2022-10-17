@@ -12,7 +12,7 @@ public class NextLevel : UI
 
     private int _currentIndex = 1;
     private float _timeDelayNewLevel = 1f;
-    public event Action IsClick;
+    public event Action IsButtonClickNext;
 
     private void OnEnable()
     {
@@ -33,12 +33,12 @@ public class NextLevel : UI
 
     private void EnableButton()
     {
-        IsClick?.Invoke();
         _button.gameObject.SetActive(true);
     }
 
     private void ChallengeNextLevel()
     {
+        IsButtonClickNext?.Invoke();
         StartCoroutine(EnableNextLevel());
     }
 

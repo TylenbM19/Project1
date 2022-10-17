@@ -11,7 +11,7 @@ public class Restart : UI
 
     private float _delayTimeRestartGame = 1f;
 
-    public event Action IsClick;
+    public event Action IsButtonClick;
 
     private void OnEnable()
     {
@@ -38,7 +38,7 @@ public class Restart : UI
 
     private void ReloadLevel()
     {
-        IsClick?.Invoke();
+        IsButtonClick?.Invoke();
         StartCoroutine(LoadScene());
     }
 

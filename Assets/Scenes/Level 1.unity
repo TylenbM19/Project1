@@ -292,6 +292,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 84185356, guid: 8bd97551661237b4993422cba40acb4b, type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 84185356, guid: 8bd97551661237b4993422cba40acb4b, type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 84185356, guid: 8bd97551661237b4993422cba40acb4b, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1231071732, guid: 8bd97551661237b4993422cba40acb4b, type: 3}
       propertyPath: _finishPoint
       value: 
@@ -462,7 +474,7 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5933914814019655869, guid: 2eba644f0cba83b4185c445535ace6df, type: 3}
+    - target: {fileID: 3997350332141818214, guid: 2eba644f0cba83b4185c445535ace6df, type: 3}
       propertyPath: m_Name
       value: Level1
       objectReference: {fileID: 0}

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class LosingVictory : UI
@@ -6,6 +7,8 @@ public class LosingVictory : UI
     [SerializeField] private FinishPoint _finishPoint;
 
     private const string _wordWin = "WordFinish";
+
+    public event Action IsWin;
 
     private void OnEnable()
     {
@@ -20,6 +23,7 @@ public class LosingVictory : UI
     private void PlayWinnings()
     {
         ShowText();
+        IsWin?.Invoke();
     }
 
     private void ShowText()
