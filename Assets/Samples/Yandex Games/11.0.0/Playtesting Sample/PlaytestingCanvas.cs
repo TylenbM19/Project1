@@ -1,5 +1,4 @@
 #pragma warning disable
-
 using System.Collections;
 using Agava.YandexGames;
 using Agava.YandexGames.Samples;

@@ -1,30 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayList : MonoBehaviour
 {
     [SerializeField] private AudioSource _mainMenu;
     [SerializeField] private AudioSource _clickButton;
-    [SerializeField] private UI _ui;
+    [SerializeField] private AudioSource _winSound;
+    [SerializeField] private LosingVictory _uiVictory;
+    [SerializeField] private Restart _restartSound;
+    [SerializeField] private NextLevel _nextSound;
     [SerializeField] private SoundControl _soundControl;
 
-    private bool _isPlaying = true;
+    private VolumeEnabledPlayerPrefs _volumeEnabled = new VolumeEnabledPlayerPrefs();
+    private bool _isPlaying ;
 
     private void OnEnable()
     {
         _soundControl.IsSwitching += SwitchSound;
+        _uiVictory.IsWin += EbableSoundWin;
+        _restartSound.IsButtonClick += EnableSoundClickButton;
+        _nextSound.IsButtonClickNext += EnableSoundClickButton;
     }
 
     private void OnDisable()
     {
         _soundControl.IsSwitching -= SwitchSound;
+        _uiVictory.IsWin -= EbableSoundWin;
+        _restartSound.IsButtonClick -= EnableSoundClickButton;
+        _nextSound.IsButtonClickNext -= EnableSoundClickButton;
+    }
+
+    private void Start()
+    {
+        _isPlaying = _volumeEnabled.Get();
+        EnableSoundMainMenu();
     }
 
     private void SwitchSound(bool isPlaying)
     {
         _isPlaying = isPlaying;
-        //EnableSoundClickButton();
         EnableSoundMainMenu();
     }
 
@@ -46,5 +59,16 @@ public class PlayList : MonoBehaviour
             return;
         }
         _mainMenu.Play();
+    }
+
+    private void EbableSoundWin()
+    {
+
+        if (!_isPlaying)
+        {
+            _winSound.Stop();
+            return;
+        }
+        _winSound.Play();
     }
 }

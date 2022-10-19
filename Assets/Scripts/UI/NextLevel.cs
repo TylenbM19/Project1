@@ -1,6 +1,6 @@
+using Agava.YandexGames;
 using System;
 using System.Collections;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -12,7 +12,7 @@ public class NextLevel : UI
 
     private int _currentIndex = 1;
     private float _timeDelayNewLevel = 1f;
-    public event Action IsClick;
+    public event Action IsButtonClickNext;
 
     private void OnEnable()
     {
@@ -33,12 +33,12 @@ public class NextLevel : UI
 
     private void EnableButton()
     {
-        IsClick?.Invoke();
         _button.gameObject.SetActive(true);
     }
 
     private void ChallengeNextLevel()
     {
+        IsButtonClickNext?.Invoke();
         StartCoroutine(EnableNextLevel());
     }
 
@@ -46,5 +46,6 @@ public class NextLevel : UI
     {
         yield return new WaitForSeconds(_timeDelayNewLevel);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + _currentIndex);
+        InterstitialAd.Show();
     }
 }
