@@ -11,7 +11,6 @@ public class Bilder : MonoBehaviour
     public event Action<List<Vector3>> TransferPositon;
     public event Action StartDraw;
 
-
     private List<Vector3> _points;
     private LineRenderer _line;
     private bool _enabled = true;
@@ -33,7 +32,6 @@ public class Bilder : MonoBehaviour
         if (Input.GetMouseButton(0) && _enabled)
         {
             BildingSiteSearch();
-            StartDraw?.Invoke();
         }
         else if (Input.GetMouseButtonUp(0) && _startPositon)
         {
@@ -72,6 +70,7 @@ public class Bilder : MonoBehaviour
                 _pointer.position = hit.point;
                 DrawLine(_pointer.position);
                 _points.Add(_pointer.position);
+                StartDraw?.Invoke();
             }
         }
     }

@@ -1,6 +1,6 @@
+using Agava.YandexGames;
 using System;
 using System.Collections;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -46,5 +46,6 @@ public class NextLevel : UI
     {
         yield return new WaitForSeconds(_timeDelayNewLevel);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + _currentIndex);
+        InterstitialAd.Show();
     }
 }
