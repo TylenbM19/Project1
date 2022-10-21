@@ -2417,31 +2417,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7668996258170931806, guid: 250bd1c79301ac1419325114026c626c, type: 3}
       propertyPath: m_Color.b
-      value: 0.47028923
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7668996258170931806, guid: 250bd1c79301ac1419325114026c626c, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7668996258170931806, guid: 250bd1c79301ac1419325114026c626c, type: 3}
+      propertyPath: m_Color.r
+      value: 0.2810998
       objectReference: {fileID: 0}
     - target: {fileID: 8317098582370243486, guid: 250bd1c79301ac1419325114026c626c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c036f3de1f1584b6eb35aa03cce9964c, type: 3}
+    - target: {fileID: 8317098582370243486, guid: 250bd1c79301ac1419325114026c626c, type: 3}
       propertyPath: m_Color.b
-      value: 0.9474219
+      value: 0.8507538
       objectReference: {fileID: 0}
     - target: {fileID: 8317098582370243486, guid: 250bd1c79301ac1419325114026c626c, type: 3}
       propertyPath: m_Color.g
-      value: 0.36765754
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8317098582370243486, guid: 250bd1c79301ac1419325114026c626c, type: 3}
       propertyPath: m_Color.r
-      value: 0.9622642
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8694334990203324183, guid: 250bd1c79301ac1419325114026c626c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.7785947
+      objectReference: {fileID: 0}
+    - target: {fileID: 8694334990203324183, guid: 250bd1c79301ac1419325114026c626c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.50179
+      objectReference: {fileID: 0}
+    - target: {fileID: 8694334990203324183, guid: 250bd1c79301ac1419325114026c626c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.074735
       objectReference: {fileID: 0}
     - target: {fileID: 8694334990203324183, guid: 250bd1c79301ac1419325114026c626c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.03
+      value: -0.07
       objectReference: {fileID: 0}
     - target: {fileID: 8694334990203324183, guid: 250bd1c79301ac1419325114026c626c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0025634766
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 8965512586783179341, guid: 250bd1c79301ac1419325114026c626c, type: 3}
       propertyPath: m_LocalPosition.x

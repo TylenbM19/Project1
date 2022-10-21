@@ -46,6 +46,6 @@ public class NextLevel : UI
     {
         yield return new WaitForSeconds(_timeDelayNewLevel);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + _currentIndex);
-        InterstitialAd.Show();
+        //InterstitialAd.Show();
     }
 }
