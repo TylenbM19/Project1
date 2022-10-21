@@ -6,7 +6,7 @@ public class LosingVictory : UI
     [SerializeField] private Animator _word;
     [SerializeField] private FinishPoint _finishPoint;
 
-    private const string _wordWin = "WordFinish";
+    private const string _wordWin = "Excellent";
 
     public event Action IsWin;
 

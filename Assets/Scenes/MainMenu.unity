@@ -253,15 +253,43 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1186042241610652080, guid: e4871ee892f7c4538bb195bc6f6601a3, type: 3}
       propertyPath: m_text
-      value: Start game
+      value: Oyun oynamak
       objectReference: {fileID: 0}
     - target: {fileID: 1186042241610652080, guid: e4871ee892f7c4538bb195bc6f6601a3, type: 3}
       propertyPath: m_margin.z
       value: 1.8038864
       objectReference: {fileID: 0}
     - target: {fileID: 1186042241610652080, guid: e4871ee892f7c4538bb195bc6f6601a3, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 1186042241610652080, guid: e4871ee892f7c4538bb195bc6f6601a3, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186042241610652080, guid: e4871ee892f7c4538bb195bc6f6601a3, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186042241610652080, guid: e4871ee892f7c4538bb195bc6f6601a3, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186042241610652080, guid: e4871ee892f7c4538bb195bc6f6601a3, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186042241610652080, guid: e4871ee892f7c4538bb195bc6f6601a3, type: 3}
       propertyPath: m_textAlignment
       value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186042241610652080, guid: e4871ee892f7c4538bb195bc6f6601a3, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+    - target: {fileID: 1186042241610652080, guid: e4871ee892f7c4538bb195bc6f6601a3, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 1186042241610652080, guid: e4871ee892f7c4538bb195bc6f6601a3, type: 3}
       propertyPath: m_TextStyleHashCode
@@ -1310,6 +1338,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1543157585}
   m_CullTransparentMesh: 1
+--- !u!1 &1613851643 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1186042241610652082, guid: e4871ee892f7c4538bb195bc6f6601a3, type: 3}
+  m_PrefabInstance: {fileID: 873391469}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1613851647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613851643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 116f550784e60314893ced0ec089dbda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _localization: {fileID: 2013573378}
+  _ru: "\u041D\u0430\u0447\u0430\u0442\u044C \u0438\u0433\u0440\u0430\u0442\u044C"
+  _en: Play start
+  _tr: "Ba\u015Flang\u0131\xE7 oyna"
 --- !u!1001 &1763389743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1404,30 +1453,6 @@ PrefabInstance:
     - target: {fileID: 3847548234937888360, guid: 7f417038db59f1044bb9e078094869a0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Text
-      value: Save Lary!
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Color.g
-      value: 0.96941197
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_FontData.m_MinSize
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_FontData.m_FontSize
-      value: 108
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f417038db59f1044bb9e078094869a0, type: 3}
@@ -1525,6 +1550,22 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1763389747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1763389744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 116f550784e60314893ced0ec089dbda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _localization: {fileID: 2013573378}
+  _ru: "\u0421\u043F\u0430\u0441\u0438 \u041B\u0430\u0440\u0438"
+  _en: Save Lary
+  _tr: Lary'yi Kaydet
 --- !u!1 &1769739304
 GameObject:
   m_ObjectHideFlags: 0
@@ -1804,6 +1845,50 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!1 &2013573377
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2013573379}
+  - component: {fileID: 2013573378}
+  m_Layer: 0
+  m_Name: Localization
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2013573378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013573377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 204406952b14d1d42bab35f113e6b251, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &2013573379
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013573377}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 35.05676, y: 36.702934, z: -0.007005226}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2143212429
 GameObject:
   m_ObjectHideFlags: 0

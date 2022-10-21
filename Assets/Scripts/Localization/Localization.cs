@@ -28,9 +28,6 @@ public class Localization : MonoBehaviour
             case "ru":
                 LanguageChanged?.Invoke(Language.Russian);
                 break;
-            case "en":
-                LanguageChanged?.Invoke(Language.English);
-                break;
             case "tr":
                 LanguageChanged?.Invoke(Language.Turkish);
                 break;
